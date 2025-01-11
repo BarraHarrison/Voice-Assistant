@@ -1,4 +1,5 @@
 # Voice Assistant in Python
+import os
 from neuralintents import BasicAssistant
 import speech_recognition 
 import pyttsx3 as tts 
@@ -60,7 +61,15 @@ mappings_dictionary = {
 }
 
 assistant = BasicAssistant('assistant_intents.json')
-assistant.load_model()
+
+model_file = "basic_model.keras"
+if not os.path.exists(model_file):
+    print("Model file not found. Training the model...")
+    assistant.train_model()
+    assistant.save_model(model_file)
+else:
+    print("Model file found. Loading the model...")
+    assistant.load_model()
 
 for intent, function in mappings_dictionary.items():
     assistant.add_custom_action(intent, function)
