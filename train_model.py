@@ -21,9 +21,6 @@ for intent in data["intents"]:
 label_encoder = LabelEncoder()
 tags_encoded = label_encoder.fit_transform(tags)
 
-from tensorflow.keras.preprocessing.text import Tokenizer
-from tensorflow.keras.preprocessing.sequence import pad_sequences
-
 tokenizer = Tokenizer(num_words=5000, oov_token="<OOV")
 tokenizer.fit_on_texts(patterns)
 sequences = tokenizer.texts_to_sequences(patterns)
