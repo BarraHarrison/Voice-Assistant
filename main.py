@@ -1,9 +1,12 @@
 # Voice Assistant in Python
 import os
-from neuralintents import BasicAssistant
 import speech_recognition 
 import pyttsx3 as tts 
 import sys
+import pickle
+import numpy as np 
+import tensorflow as tf
+
 
 recognizer = speech_recognition.Recognizer()
 speaker = tts.init()
@@ -51,7 +54,15 @@ def hello_function():
 def quit_function():
     speaker.say("Bye Bye!")
     speaker.runAndWait()
-    sys.exit(0)
+    sys.exit(1)
+
+model = tf.keras.models.load_model(model_file)
+
+with open(tokenizer_file, "rb") as handle:
+    tokenizer = pickle.load(handle)
+
+with open(label_encoder_file, "rb") as handle:
+    label_encoder = pickle.load(handle)
 
 mappings_dictionary = {
     "greeting": hello_function,
@@ -59,20 +70,6 @@ mappings_dictionary = {
     "show_todos": show_todos,
     "exit": quit_function
 }
-
-assistant = BasicAssistant('assistant_intents.json')
-
-model_file = "basic_model.keras"
-if not os.path.exists(model_file):
-    print("Model file not found. Training the model...")
-    assistant.train_model()
-    assistant.save_model(model_file)
-else:
-    print("Model file found. Loading the model...")
-    assistant.load_model()
-
-for intent, function in mappings_dictionary.items():
-    assistant.add_custom_action(intent, function)
 
 while True:
     try:

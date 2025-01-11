@@ -21,10 +21,10 @@ for intent in data["intents"]:
 label_encoder = LabelEncoder()
 tags_encoded = label_encoder.fit_transform(tags)
 
-tokenizer = Tokenizer(num_words=5000, oov_token="<OOV")
+tokenizer = tf.keras.preprocessing.text.Tokenizer(num_words=5000, oov_token="<OOV>")
 tokenizer.fit_on_texts(patterns)
 sequences = tokenizer.texts_to_sequences(patterns)
-padded_sequences = pad_sequences(sequences, maxlen=20)
+padded_sequences = tf.keras.prepocessing.sequence.pad_sequences(sequences, maxlen=20)
 
 # Model definition
 model = tf.keras.models.Sequential()
