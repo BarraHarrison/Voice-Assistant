@@ -13,7 +13,7 @@ todo_list = ["Go Shopping", "Clean Room", "Study Korean"]
 def create_todo():
     global recognizer
 
-    speaker.say("What todo do you want to create?")
+    speaker.say("What to-do do you want to create?")
     speaker.runAndWait()
 
     done = False
@@ -26,19 +26,10 @@ def create_todo():
                 todo = recognizer.recognize_bing(audio)
                 todo = todo.lower()
 
-                speaker.say("Choose a file name!")
-                speaker.runAndWait()
-
-                recognizer.adjust_for_ambient_noise(mic, duration=0.2)
-                audio = recognizer.listen(mic)
-
-                filename = recognizer.recognize_bing(audio)
-                filename = filename.lower()
-
-            with open(filename, 'w') as f:
-                f.write(todo)
+                todo_list.append(todo)
                 done = True
-                speaker.say(f"I successfully created the todo {filename}")
+
+                speaker.say(f"I successfully added {todo} to the to-do list.")
                 speaker.runAndWait()
 
         except speech_recognition.UnknownValueError:
@@ -46,6 +37,12 @@ def create_todo():
             speaker.say("I did not understand you. Please try again.")
             speaker.runAndWait()
 
+def show_todos():
+    
+    speaker.say("Here are the following to-dos on your to-do list")
+    for todo in todo_list:
+        speaker.say(todo)
+    speaker.runAndWait()
 
 assistant = GenericAssistant('assistant_intents.json')
 assistant.train_model()
