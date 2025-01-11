@@ -12,6 +12,317 @@
             "responses": [
                 "Hello Barra. What can I do for you today?"
             ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "Goodbye",
+                "Bye",
+                "See you later",
+                "Take care",
+                "Catch you later"
+            ],
+            "responses": [
+                "Goodbye! Have a great day!",
+                "See you later!",
+                "Take care!"
+            ]
+        },
+        {
+            "tag": "thanks",
+            "patterns": [
+                "Thanks",
+                "Thank you",
+                "I appreciate it",
+                "Thanks a lot"
+            ],
+            "responses": [
+                "You're welcome!",
+                "No problem!",
+                "Anytime!"
+            ]
+        },
+        {
+            "tag": "name",
+            "patterns": [
+                "What's your name?",
+                "Who are you?",
+                "What should I call you?"
+            ],
+            "responses": [
+                "I'm your personal assistant.",
+                "You can call me Voice Assistant."
+            ]
+        },
+        {
+            "tag": "time",
+            "patterns": [
+                "What time is it?",
+                "Tell me the time",
+                "Can you give me the time?"
+            ],
+            "responses": [
+                "The current time is [time]"
+            ]
+        },
+        {
+            "tag": "date",
+            "patterns": [
+                "What's the date today?",
+                "What day is it?",
+                "Can you give me today's date?"
+            ],
+            "responses": [
+                "Today's date is [date]"
+            ]
+        },
+        {
+            "tag": "weather",
+            "patterns": [
+                "What's the weather like?",
+                "Tell me the weather",
+                "Is it raining?",
+                "Is it sunny outside?"
+            ],
+            "responses": [
+                "The current weather is [weather details]"
+            ]
+        },
+        {
+            "tag": "news",
+            "patterns": [
+                "What's the latest news?",
+                "Tell me the news",
+                "Give me the headlines"
+            ],
+            "responses": [
+                "Here are the latest news headlines: [news details]"
+            ]
+        },
+        {
+            "tag": "alarm",
+            "patterns": [
+                "Set an alarm",
+                "Wake me up at [time]",
+                "Can you set an alarm for me?"
+            ],
+            "responses": [
+                "Your alarm has been set for [time]"
+            ]
+        },
+        {
+            "tag": "reminder",
+            "patterns": [
+                "Remind me to [task]",
+                "Set a reminder",
+                "I need a reminder for [task]"
+            ],
+            "responses": [
+                "I have set a reminder for [task]"
+            ]
+        },
+        {
+            "tag": "jokes",
+            "patterns": [
+                "Tell me a joke",
+                "Make me laugh",
+                "Do you know any jokes?"
+            ],
+            "responses": [
+                "Why don't scientists trust atoms? Because they make up everything!",
+                "What do you call fake spaghetti? An impasta!"
+            ]
+        },
+        {
+            "tag": "music",
+            "patterns": [
+                "Play some music",
+                "Can you play a song?",
+                "Start playing music"
+            ],
+            "responses": [
+                "Playing music now.",
+                "Here's a song for you."
+            ]
+        },
+        {
+            "tag": "search",
+            "patterns": [
+                "Search for [query]",
+                "Look up [query]",
+                "Can you find [query]?"
+            ],
+            "responses": [
+                "Here are the results for [query]"
+            ]
+        },
+        {
+            "tag": "facts",
+            "patterns": [
+                "Tell me a fact",
+                "Do you know any interesting facts?",
+                "Give me a fun fact"
+            ],
+            "responses": [
+                "Did you know? The Eiffel Tower can be 15 cm taller during the summer due to thermal expansion."
+            ]
+        },
+        {
+            "tag": "calculator",
+            "patterns": [
+                "What's [number] plus [number]?",
+                "Can you calculate [equation]?",
+                "Solve [math problem]"
+            ],
+            "responses": [
+                "The answer is [calculated answer]"
+            ]
+        },
+        {
+            "tag": "translation",
+            "patterns": [
+                "Translate [phrase] to [language]",
+                "Can you translate [phrase]?",
+                "What is [phrase] in [language]?"
+            ],
+            "responses": [
+                "[phrase] in [language] is [translation]"
+            ]
+        },
+        {
+            "tag": "currency_exchange",
+            "patterns": [
+                "What's the exchange rate for [currency]?",
+                "Convert [amount] [currency] to [currency]",
+                "How much is [amount] in [currency]?"
+            ],
+            "responses": [
+                "[amount] [currency] is [converted amount] in [currency]"
+            ]
+        },
+        {
+            "tag": "directions",
+            "patterns": [
+                "How do I get to [location]?",
+                "Give me directions to [location]",
+                "What's the best way to [location]?"
+            ],
+            "responses": [
+                "Here are the directions to [location]: [directions details]"
+            ]
+        },
+        {
+            "tag": "timer",
+            "patterns": [
+                "Set a timer for [duration]",
+                "Start a timer",
+                "Can you set a timer?"
+            ],
+            "responses": [
+                "Your timer is set for [duration]"
+            ]
+        },
+        {
+            "tag": "control_lights",
+            "patterns": [
+                "Turn on the lights",
+                "Switch off the lights",
+                "Dim the lights"
+            ],
+            "responses": [
+                "The lights have been [action]"
+            ]
+        },
+        {
+            "tag": "control_thermostat",
+            "patterns": [
+                "Set the thermostat to [temperature]",
+                "Adjust the temperature",
+                "Make it warmer"
+            ],
+            "responses": [
+                "The thermostat is set to [temperature] degrees"
+            ]
+        },
+        {
+            "tag": "food_recommendation",
+            "patterns": [
+                "What should I eat?",
+                "Recommend me a restaurant",
+                "I'm hungry"
+            ],
+            "responses": [
+                "How about trying [food suggestion]?"
+            ]
+        },
+        {
+            "tag": "fitness",
+            "patterns": [
+                "How many calories in [food]?",
+                "Give me a workout routine",
+                "Suggest an exercise"
+            ],
+            "responses": [
+                "Here is a workout routine: [routine details]"
+            ]
+        },
+        {
+            "tag": "movie_recommendation",
+            "patterns": [
+                "Suggest a movie",
+                "What should I watch?",
+                "Recommend a film"
+            ],
+            "responses": [
+                "You might enjoy [movie name]"
+            ]
+        },
+        {
+            "tag": "motivation",
+            "patterns": [
+                "Motivate me",
+                "Tell me something inspiring",
+                "Give me a motivational quote"
+            ],
+            "responses": [
+                "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle."
+            ]
+        },
+        {
+            "tag": "support",
+            "patterns": [
+                "I need help",
+                "Can you assist me?",
+                "Help me with [issue]"
+            ],
+            "responses": [
+                "How can I assist you?",
+                "Please describe your issue so I can help."
+            ]
+        },
+        {
+            "tag": "shopping_list",
+            "patterns": [
+                "Add [item] to my shopping list",
+                "What’s on my shopping list?",
+                "Remove [item] from my shopping list"
+            ],
+            "responses": [
+                "[item] has been added to your shopping list.",
+                "Here’s your shopping list: [list items]"
+            ]
+        },
+        {
+            "tag": "compliments",
+            "patterns": [
+                "You’re awesome",
+                "Good job",
+                "You’re the best"
+            ],
+            "responses": [
+                "Thank you! I’m here to help you.",
+                "I appreciate that!"
+            ]
         }
     ]
 }
