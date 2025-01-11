@@ -14,6 +14,11 @@ speaker.setProperty('rate', 150) # Speech Speed
 
 todo_list = ["Go Shopping", "Clean Room", "Study Korean"]
 
+# File Paths
+model_file = "basic_model.keras"
+tokenizer_file = "Tokenizer.pickle"
+label_encoder_file = "label_encoder.pickle"
+
 def create_todo():
     global recognizer
 
