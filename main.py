@@ -1,5 +1,5 @@
 # Voice Assistant in Python
-from neuralintents import GenericAssistant
+from neuralintents import BasicAssistant
 import speech_recognition 
 import pyttsx3 as tts 
 import sys
@@ -23,7 +23,7 @@ def create_todo():
             with speech_recognition.Microphone() as mic:
                 recognizer.adjust_for_ambient_noise(mic, duration=0.2)
                 audio = recognizer.listen(mic)
-                todo = recognizer.recognize_bing(audio)
+                todo = recognizer.recognize_google(audio)
                 todo = todo.lower()
 
                 todo_list.append(todo)
@@ -59,10 +59,11 @@ mappings_dictionary = {
     "exit": quit_function
 }
 
+assistant = BasicAssistant('assistant_intents.json')
+assistant.load_model()
 
-
-assistant = GenericAssistant('assistant_intents.json', intent_methods=mappings_dictionary)
-assistant.train_model()
+for intent, function in mappings_dictionary.items():
+    assistant.add_custom_action(intent, function)
 
 while True:
     try:
@@ -70,10 +71,12 @@ while True:
         with speech_recognition.Microphone() as mic:
             recognizer.adjust_for_ambient_noise(mic, duration=0.2)
             audio = recognizer.listen(mic)
-            message = recognizer.recognize_bing(audio)
+            message = recognizer.recognize_google(audio)
             message = message.lower()
 
         assistant.request(message)
 
     except speech_recognition.UnknownValueError:
         recognizer = speech_recognition.Recognizer()
+        speaker.say("I did not understand you. Please try again.")
+        speaker.runAndWait()
