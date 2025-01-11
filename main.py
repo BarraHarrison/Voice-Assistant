@@ -50,7 +50,30 @@ def hello_function():
 def quit_function():
     speaker.say("Bye Bye!")
     speaker.runAndWait()
-    sys.exit()
+    sys.exit(0)
 
-assistant = GenericAssistant('assistant_intents.json')
+mappings_dictionary = {
+    "greeting": hello_function,
+    "create_todo": create_todo,
+    "show_todos": show_todos,
+    "exit": quit_function
+}
+
+
+
+assistant = GenericAssistant('assistant_intents.json', intent_methods=mappings_dictionary)
 assistant.train_model()
+
+while True:
+    try:
+
+        with speech_recognition.Microphone() as mic:
+            recognizer.adjust_for_ambient_noise(mic, duration=0.2)
+            audio = recognizer.listen(mic)
+            message = recognizer.recognize_bing(audio)
+            message = message.lower()
+
+        assistant.request(message)
+
+    except speech_recognition.UnknownValueError:
+        recognizer = speech_recognition.Recognizer()
