@@ -73,14 +73,23 @@ mappings_dictionary = {
 
 while True:
     try:
-
         with speech_recognition.Microphone() as mic:
             recognizer.adjust_for_ambient_noise(mic, duration=0.2)
             audio = recognizer.listen(mic)
             message = recognizer.recognize_google(audio)
             message = message.lower()
 
-        assistant.request(message)
+        sequence = tokenizer.texts_to_sequences([message])
+        padded_sequences = tf.keras.prepocessing.sequence.pad_sequences(sequence, maxlen=20)
+        prediction = model.predict(padded_sequences)
+        predicted_tag = label_encoder.inverse_transform([np.argmax(prediction)])[0]
+
+        if predicted_tag in mappings_dictionary:
+            mappings_dictionary[predicted_tag]()
+        else:
+            speaker.say("I'm not sure how to help with that.")
+            speaker.runAndWait()
+
 
     except speech_recognition.UnknownValueError:
         recognizer = speech_recognition.Recognizer()
