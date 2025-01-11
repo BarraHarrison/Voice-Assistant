@@ -38,11 +38,19 @@ def create_todo():
             speaker.runAndWait()
 
 def show_todos():
-    
     speaker.say("Here are the following to-dos on your to-do list")
     for todo in todo_list:
         speaker.say(todo)
     speaker.runAndWait()
+
+def hello_function():
+    speaker.say("Hello Barra. What can I do for you today?")
+    speaker.runAndWait()
+
+def quit_function():
+    speaker.say("Bye Bye!")
+    speaker.runAndWait()
+    sys.exit()
 
 assistant = GenericAssistant('assistant_intents.json')
 assistant.train_model()
