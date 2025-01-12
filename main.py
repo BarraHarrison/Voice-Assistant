@@ -106,8 +106,15 @@ while True:
         sequence = tokenizer.texts_to_sequences([message])
         padded_sequences = tf.keras.preprocessing.sequence.pad_sequences(sequence, maxlen=20)
         prediction = model.predict(padded_sequences)
+        print(f"Prediction probabilities: {prediction}")
         predicted_tag = label_encoder.inverse_transform([np.argmax(prediction)])[0]
         print(f"Predicted Tag: {predicted_tag}")
+
+        if max(prediction[0]) < 0.5:
+            print(f"Low confidence prediction: {prediction}")
+            speaker.say("I'm not sure I can help you with this issue.")
+            speaker.runAndWait()
+            continue
 
         if predicted_tag in mappings_dictionary:
             mappings_dictionary[predicted_tag]()
