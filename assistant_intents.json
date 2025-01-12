@@ -5,12 +5,9 @@
             "patterns": [
                 "Hey",
                 "Hello",
-                "What's up?",
-                "How's it going?",
-                "How are you?",
                 "Hi there",
-                "Greetings",
-                "Good to see you"
+                "Good morning",
+                "Good evening"
             ],
             "responses": [
                 "Hello Barra. What can I do for you today?",
@@ -21,11 +18,10 @@
             "tag": "goodbye",
             "patterns": [
                 "Goodbye",
-                "Bye",
                 "See you later",
-                "Take care",
+                "Talk to you later",
+                "Bye",
                 "Catch you later",
-                "Talk to you soon",
                 "Bye-bye"
             ],
             "responses": [
@@ -41,8 +37,7 @@
                 "Thank you",
                 "I appreciate it",
                 "Thanks a lot",
-                "Thanks so much",
-                "Many thanks"
+                "Thanks so much"
             ],
             "responses": [
                 "You're welcome!",
