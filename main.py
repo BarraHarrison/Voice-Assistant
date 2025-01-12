@@ -110,7 +110,7 @@ while True:
         predicted_tag = label_encoder.inverse_transform([np.argmax(prediction)])[0]
         print(f"Predicted Tag: {predicted_tag}")
 
-        if max(prediction[0]) < 0.5:
+        if max(prediction[0]) < 0.2:
             print(f"Low confidence prediction: {prediction}")
             speaker.say("I'm not sure I can help you with this issue.")
             speaker.runAndWait()
