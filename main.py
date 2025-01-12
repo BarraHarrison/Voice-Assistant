@@ -6,6 +6,7 @@ import sys
 import pickle
 import numpy as np 
 import tensorflow as tf
+from datetime import datetime
 
 
 recognizer = speech_recognition.Recognizer()
@@ -57,13 +58,17 @@ def hello_function():
     speaker.runAndWait()
 
 def say_name():
-    pass
+    speaker.say("I'm your personal assistant. You can call me MacBook Voice Assistant.")
+    speaker.runAndWait()
 
 def say_thanks():
-    pass
+    speaker.say(("You are welcome. Happy to help!"))
+    speaker.runAndWait()
 
 def give_time():
-    pass
+    current_time = datetime.now().strftime("%H:%M")
+    speaker.say(f"The current time is {current_time}")
+    speaker.runAndWait()
 
 def quit_function():
     speaker.say("Bye Bye!")
