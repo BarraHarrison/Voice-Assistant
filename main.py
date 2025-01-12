@@ -56,6 +56,15 @@ def hello_function():
     speaker.say("Hello Barra. What can I do for you today?")
     speaker.runAndWait()
 
+def say_name():
+    pass
+
+def say_thanks():
+    pass
+
+def give_time():
+    pass
+
 def quit_function():
     speaker.say("Bye Bye!")
     speaker.runAndWait()
@@ -71,8 +80,12 @@ with open(label_encoder_file, "rb") as handle:
 
 mappings_dictionary = {
     "greeting": hello_function,
+    "goodbye": quit_function,
+    "thanks": say_thanks,
     "create_todo": create_todo,
     "show_todos": show_todos,
+    "name": say_name,
+    "time": give_time,
     "exit": quit_function
 }
 
