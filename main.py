@@ -94,6 +94,7 @@ while True:
         if predicted_tag in mappings_dictionary:
             mappings_dictionary[predicted_tag]()
         else:
+            print(f"Unrecognized Tag: {predicted_tag}")
             speaker.say("I'm not sure how to help with that.")
             speaker.runAndWait()
 
