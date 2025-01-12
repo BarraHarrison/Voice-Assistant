@@ -85,7 +85,7 @@ while True:
             message = message.lower()
 
         sequence = tokenizer.texts_to_sequences([message])
-        padded_sequences = tf.keras.prepocessing.sequence.pad_sequences(sequence, maxlen=20)
+        padded_sequences = tf.keras.preprocessing.sequence.pad_sequences(sequence, maxlen=20)
         prediction = model.predict(padded_sequences)
         predicted_tag = label_encoder.inverse_transform([np.argmax(prediction)])[0]
 
