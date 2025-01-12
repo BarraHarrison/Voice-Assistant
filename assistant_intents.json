@@ -7,7 +7,10 @@
                 "Hello",
                 "Hi there",
                 "Good morning",
-                "Good evening"
+                "Good evening",
+                "Howdy",
+                "Hey, how are you?",
+                "Hi, what can you do?"
             ],
             "responses": [
                 "Hello Barra. What can I do for you today?",
@@ -22,7 +25,9 @@
                 "Talk to you later",
                 "Bye",
                 "Catch you later",
-                "Bye-bye"
+                "Bye-bye",
+                "See you soon",
+                "Take care"
             ],
             "responses": [
                 "Goodbye! Have a great day!",
@@ -37,7 +42,9 @@
                 "Thank you",
                 "I appreciate it",
                 "Thanks a lot",
-                "Thanks so much"
+                "Thanks so much",
+                "Many thanks",
+                "Thanks for your help"
             ],
             "responses": [
                 "You're welcome!",
@@ -51,7 +58,8 @@
                 "What's your name?",
                 "Who are you?",
                 "What should I call you?",
-                "Do you have a name?"
+                "Do you have a name?",
+                "Tell me your name"
             ],
             "responses": [
                 "I'm your personal assistant.",
@@ -64,7 +72,9 @@
                 "What time is it?",
                 "Tell me the time",
                 "Can you give me the time?",
-                "Do you know the time?"
+                "Do you know the time?",
+                "What’s the current time?",
+                "What time is it now?"
             ],
             "responses": [
                 "The current time is [time]"
@@ -76,7 +86,8 @@
                 "What's the date today?",
                 "What day is it?",
                 "Can you give me today's date?",
-                "Do you know today's date?"
+                "Do you know today's date?",
+                "What’s the current date?"
             ],
             "responses": [
                 "Today's date is [date]"
@@ -89,7 +100,9 @@
                 "Tell me the weather",
                 "Is it raining?",
                 "Is it sunny outside?",
-                "How's the weather today?"
+                "How's the weather today?",
+                "What's the forecast?",
+                "What's the temperature like?"
             ],
             "responses": [
                 "The current weather is [weather details]"
@@ -101,7 +114,8 @@
                 "What's the latest news?",
                 "Tell me the news",
                 "Give me the headlines",
-                "What's happening in the world?"
+                "What's happening in the world?",
+                "Any news updates?"
             ],
             "responses": [
                 "Here are the latest news headlines: [news details]"
@@ -113,7 +127,8 @@
                 "Set an alarm",
                 "Wake me up at [time]",
                 "Can you set an alarm for me?",
-                "Remind me to wake up at [time]"
+                "Remind me to wake up at [time]",
+                "Set an alarm for [time]"
             ],
             "responses": [
                 "Your alarm has been set for [time]"
@@ -125,7 +140,8 @@
                 "Motivate me",
                 "Tell me something inspiring",
                 "Give me a motivational quote",
-                "I need encouragement"
+                "I need encouragement",
+                "Can you inspire me?"
             ],
             "responses": [
                 "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle."
@@ -137,7 +153,9 @@
                 "Add a new task",
                 "Create a to-do",
                 "Can you add [task] to my to-do list?",
-                "Add [task] to my list"
+                "Add [task] to my list",
+                "Make a new task",
+                "Add something to my to-do list"
             ],
             "responses": [
                 "[task] has been added to your to-do list."
@@ -149,7 +167,8 @@
                 "Show me my to-do list",
                 "What’s on my to-do list?",
                 "List all my tasks",
-                "What do I need to do?"
+                "What do I need to do?",
+                "What tasks are pending?"
             ],
             "responses": [
                 "Here is your to-do list: [list of tasks]"
@@ -161,7 +180,8 @@
                 "Remove [task] from my to-do list",
                 "Delete a task",
                 "Can you remove [task] from my to-do list?",
-                "Delete [task] from my list"
+                "Delete [task] from my list",
+                "Remove a task from my list"
             ],
             "responses": [
                 "[task] has been removed from your to-do list."
@@ -173,7 +193,8 @@
                 "Tell me a joke",
                 "Make me laugh",
                 "Do you know any jokes?",
-                "I want to hear a joke"
+                "I want to hear a joke",
+                "Say something funny"
             ],
             "responses": [
                 "Why don't scientists trust atoms? Because they make up everything!",
@@ -187,7 +208,8 @@
                 "Close",
                 "Quit",
                 "End session",
-                "Stop the program"
+                "Stop the program",
+                "Terminate the assistant"
             ],
             "responses": [
                 "Goodbye! Let me know if you need anything else."
