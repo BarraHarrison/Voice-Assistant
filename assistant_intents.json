@@ -165,7 +165,7 @@
             "tag": "show_todos",
             "patterns": [
                 "Show me my to-do list",
-                "What’s on my to-do list?",
+                "Whats on my to-do list?",
                 "List all my tasks",
                 "What do I need to do?",
                 "What tasks are pending?"
