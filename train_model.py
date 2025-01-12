@@ -9,7 +9,7 @@ with open("assistant_intents.json") as file:
 
 patterns = []
 tags = []
-responses = []
+responses = {}
 
 for intent in data["intents"]:
     for pattern in intent["patterns"]:
