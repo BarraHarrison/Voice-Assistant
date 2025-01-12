@@ -83,11 +83,13 @@ while True:
             audio = recognizer.listen(mic)
             message = recognizer.recognize_google(audio)
             message = message.lower()
+            print(f"Recognized message: {message}")
 
         sequence = tokenizer.texts_to_sequences([message])
         padded_sequences = tf.keras.preprocessing.sequence.pad_sequences(sequence, maxlen=20)
         prediction = model.predict(padded_sequences)
         predicted_tag = label_encoder.inverse_transform([np.argmax(prediction)])[0]
+        print(f"Predicted Tag: {predicted_tag}")
 
         if predicted_tag in mappings_dictionary:
             mappings_dictionary[predicted_tag]()
