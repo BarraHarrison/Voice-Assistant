@@ -2,7 +2,6 @@ from transformers import BertTokenizer, BertForSequenceClassification
 import torch
 import speech_recognition
 
-
 tokenizer = BertTokenizer.from_pretrained("bert_intent_model")
 model = BertForSequenceClassification.from_pretrained("bert_intent_model")
 
@@ -19,15 +18,3 @@ predicted_label = predictions.argmax().item()
 intent = model.config.id2label[predicted_label]
 print(f"Predicted Intent: {intent}")
 
-intent_to_action = {
-    "greeting": hello_function,
-    "show_todos": show_todos,
-    "create_todo": create_todo,
-    "goodbye": quit_function
-}
-
-if intent in intent_to_action:
-    intent_to_action[intent]()
-else:
-    speaker.say("I am not sure how to help with that.")
-    speaker.runAndWait()
