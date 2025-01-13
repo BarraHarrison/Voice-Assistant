@@ -19,3 +19,13 @@ training_args = TrainingArguments(
     save_strategy="epoch",
     logging_dir="./logs",
 )
+
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=tokenized_dataset['train'],
+    eval_dataset=tokenized_dataset['validation'],
+)
+
+trainer.train()
+trainer.save_model("bert_intent_model")
