@@ -1,12 +1,9 @@
 # Voice Assistant in Python
+from bert_intent_classifier import predict_intent
 import speech_recognition 
 import pyttsx3 as tts 
 import sys
-import pickle
-import numpy as np 
-import tensorflow as tf
 from datetime import datetime
-
 
 recognizer = speech_recognition.Recognizer()
 speaker = tts.init()
@@ -70,9 +67,7 @@ def quit_function():
     speaker.runAndWait()
     sys.exit(1)
 
-
-
-mappings_dictionary = {
+intent_to_action = {
     "greeting": hello_function,
     "goodbye": quit_function,
     "thanks": say_thanks,
@@ -80,7 +75,7 @@ mappings_dictionary = {
     "show_todos": show_todos,
     "name": say_name,
     "time": give_time,
-    "exit": quit_function
+    "goodbye": quit_function
 }
 
 while True:
@@ -88,21 +83,14 @@ while True:
         with speech_recognition.Microphone() as mic:
             recognizer.adjust_for_ambient_noise(mic, duration=0.2)
             audio = recognizer.listen(mic)
-            message = recognizer.recognize_google(audio)
-            message = message.lower()
-            print(f"Recognized message: {message}")
+            text = recognizer.recognize_google(audio).lower()
 
-        sequence = tokenizer.texts_to_sequences([message])
-        padded_sequences = tf.keras.preprocessing.sequence.pad_sequences(sequence, maxlen=20)
-        prediction = model.predict(padded_sequences)
-        predicted_tag = label_encoder.inverse_transform([np.argmax(prediction)])[0]
-        print(f"Predicted Tag: {predicted_tag}")
+        intent = predict_intent(text)
+        print(f"Predicted Intent: {intent}")
 
-
-        if predicted_tag in mappings_dictionary:
-            mappings_dictionary[predicted_tag]()
+        if intent in intent_to_action:
+            intent_to_action[intent]()
         else:
-            print(f"Unrecognized Tag: {predicted_tag}")
             speaker.say("I'm not sure how to help with that.")
             speaker.runAndWait()
 
