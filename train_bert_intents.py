@@ -10,7 +10,7 @@ tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=len(intent_classes.names))
 
 def preprocess_data(examples):
-    return tokenizer(examples['text'], padding=True, trunucation=True)
+    return tokenizer(examples['text'], padding=True, truncation=True)
 
 tokenized_dataset = dataset.map(preprocess_data, batched=True)
 
@@ -36,3 +36,4 @@ trainer = Trainer(
 
 trainer.train()
 trainer.save_model("bert_intent_model")
+tokenizer.save_pretrained("bert_intent_model")

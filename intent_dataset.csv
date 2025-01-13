@@ -1,4 +1,4 @@
-text,intents
+text,intent
 "Show me my to-do list","show_todos"
 "What do I need to do today?","show_todos"
 "List all my tasks","show_todos"
