@@ -2,18 +2,18 @@ from transformers import BertTokenizer, BertForSequenceClassification, Trainer, 
 from datasets import load_dataset, ClassLabel
 
 dataset = load_dataset('csv', data_files="intent_dataset.csv")
-dataset = dataset.map(lambda x: {"labels": x["intent"]}, batched=True)
-intent_classes = dataset["train"].features["intent"] = ClassLabel(names=["greeting", "show_todos", "goodbye"])
+intent_classes = ClassLabel(names=["greeting", "show_todos", "goodbye"])
+dataset = dataset.map(lambda x: {"labels": intent_classes.str2int(x["intent"])}, batched=True)
 
 
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=len(dataset['train'].features['intent'].names))
 
 def preprocess_data(examples):
     return tokenizer(examples['text'], padding=True, trunucation=True)
 
 tokenized_dataset = dataset.map(preprocess_data, batched=True)
 
-model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=len(dataset['train'].features['intent'].names))
 
 training_args = TrainingArguments(
     output_dir="./results",
