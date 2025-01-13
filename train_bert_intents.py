@@ -1,9 +1,14 @@
 from transformers import BertTokenizer, BertForSequenceClassification, Trainer, TrainingArguments
-from datasets import load_dataset, ClassLabel
+from datasets import load_dataset, ClassLabel, DatasetDict
 
 dataset = load_dataset('csv', data_files="intent_dataset.csv")
 intent_classes = ClassLabel(names=["greeting", "show_todos", "goodbye", "thanks", "name", "time", "date", "weather", "news", "alarm", "motivation", "create_todo", "remove_todo", "jokes", "exit"])
 dataset = dataset.map(lambda x: {"labels": intent_classes.str2int(x["intent"])}, batched=True)
+dataset = dataset["train"].train_test_split(test_size=0.2)
+dataset = DatasetDict({
+    'train': dataset['train'],
+    'validation': dataset['test']
+})
 
 
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
