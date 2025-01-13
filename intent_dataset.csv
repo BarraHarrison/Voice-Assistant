@@ -1,0 +1,4 @@
+text, intents
+"Show me my to-do list, "show_todos"
+"What do I need to do today?, "show_todos"
+"Goodbye!", "goodbye"
