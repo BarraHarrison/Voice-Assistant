@@ -7,12 +7,15 @@ dataset = dataset.map(lambda x: {"labels": intent_classes.str2int(x["intent"])},
 
 
 tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=len(dataset['train'].features['intent'].names))
+model = BertForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=len(intent_classes.names))
 
 def preprocess_data(examples):
     return tokenizer(examples['text'], padding=True, trunucation=True)
 
 tokenized_dataset = dataset.map(preprocess_data, batched=True)
+
+if "validation" not in tokenized_dataset:
+    tokenized_dataset = tokenized_dataset["train"].train_test_split(test_size=0.2)
 
 
 training_args = TrainingArguments(
