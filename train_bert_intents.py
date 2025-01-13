@@ -2,7 +2,7 @@ from transformers import BertTokenizer, BertForSequenceClassification, Trainer, 
 from datasets import load_dataset, ClassLabel
 
 dataset = load_dataset('csv', data_files="intent_dataset.csv")
-intent_classes = ClassLabel(names=["greeting", "show_todos", "goodbye"])
+intent_classes = ClassLabel(names=["greeting", "show_todos", "goodbye", "thanks", "name", "time", "date", "weather", "news", "alarm", "motivation", "create_todo", "remove_todo", "jokes", "exit"])
 dataset = dataset.map(lambda x: {"labels": intent_classes.str2int(x["intent"])}, batched=True)
 
 
