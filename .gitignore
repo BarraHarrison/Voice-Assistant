@@ -1,1 +1,4 @@
 venv/
+bert_intent_model/
+logs/
+results/
