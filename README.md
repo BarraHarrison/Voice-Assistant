@@ -6,3 +6,9 @@ This Python project aims to combine natural language understanding and voice rec
 - Intent Classification: Classifies user intent using BERT
 - Dynamic Responses: Specific responses based on the classified intent
 - Enhancable: New intents and responses can be created
+
+# Project Structure
+
+
+# Challenges Faced
+
